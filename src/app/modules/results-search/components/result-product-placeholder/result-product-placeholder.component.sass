@@ -1,0 +1,46 @@
+@import 'mixins'
+@import 'breakpoints'
+
+.container-product
+  padding: 16px
+  +flex(flex-start,space-between)
+  .image
+    +flex(center,center)
+    width: 180px
+    height: 180px
+    cursor: pointer
+    .box-image
+      width: 100%
+      height: 100%
+      margin: auto
+      border-radius: var(--border-radius-4)
+      object-fit: contain
+      +placeholder-loading()
+  .content
+    width: calc( 100% - 180px )
+    padding-left: 16px
+    .title
+      padding-top: 16px
+      +flex(center,space-between)
+      .price
+        .box-price
+          width: 95px
+          height: 20px
+          +placeholder-loading()
+      .location
+        margin-right: 115px
+        font-size: 12px
+    .subtitle
+      margin-top: 32px
+      .box-subtitle
+        width: 340px
+        height: 20px
+        +placeholder-loading()
+
+@media only screen and (max-width: $break-small-tablet)
+  .location
+    margin-right: 0px !important
+
+@media only screen and (max-width: $break-mobile)
+  .location
+    display: none !important

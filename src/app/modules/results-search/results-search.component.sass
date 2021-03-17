@@ -1,0 +1,15 @@
+@import 'mixins'
+@import 'breakpoints'
+
+.content-results
+  width: 100%
+  margin: auto
+  max-width: $break-position-desktop
+  .breadcrumbs
+    padding: 16px 0px
+  .results
+    background-color: var(--white)
+
+@media only screen and (max-width: $break-tablet)
+  .content-results
+    padding: 0px 10px

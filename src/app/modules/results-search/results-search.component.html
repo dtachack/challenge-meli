@@ -1,0 +1,19 @@
+<div class="content-results">
+  <div class="breadcrumbs">
+    <app-breadcrumbs></app-breadcrumbs>
+  </div>
+  <div class="results">
+    <ng-container *ngIf="(isLoading$|async); else listProducts">
+      <ng-container *ngFor="let i of [].constructor(4)">
+        <app-result-product-placeholder></app-result-product-placeholder>
+      </ng-container>
+    </ng-container>
+    <ng-template #listProducts>
+      <ng-container *ngFor="let product of (products$|async)?.items">
+        <app-result-product [price]="product?.price?.amount" [currencyCode]="product?.price?.currency"
+          [title]="product?.title" [image]="product?.picture" [location]="product?.location"
+          (click)="onDetail(product.id)"></app-result-product>
+      </ng-container>
+    </ng-template>
+  </div>
+</div>

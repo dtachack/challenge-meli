@@ -1,0 +1,46 @@
+@import 'mixins'
+@import 'breakpoints'
+
+header
+  background: var(--yellow)
+  width: 100%
+  height: 56px
+  .nav-content
+    width: 100%
+    height: 100%
+    margin: auto
+    max-width: $break-position-desktop
+    +flex(center,space-between)
+    .nav-logo
+      width: 53px
+      height: 36px
+      margin-right: 20px
+      background-size: 53px 36px
+      background-image: url('/assets/img/Logo_ML.png')
+    .nav-search
+      width: calc( 100% - 73px )
+      +flex(center,space-between)
+      .nav-search-input
+        width: calc(100% - 42px)
+        height: 38px
+        border-radius: 2px 0px 0px 2px
+        padding: 13px 15px
+        font-size: var(--f-18)
+        font-family: var(--primary-font)
+        color:  var(--black)
+        &::placeholder
+          color:  var(--gray)
+      .nav-search-btn
+        +flex(center,center)
+        cursor: pointer
+        width: 42px
+        height: 38px
+        .nav-icon-search
+          height: 18px
+          width: 18px
+          background-size: 18px 18px
+          background-image: url('/assets/img/ic_Search.png')
+
+@media only screen and (max-width: $break-tablet)
+  .nav-content
+    padding: 0px 10px

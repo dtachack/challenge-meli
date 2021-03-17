@@ -1,0 +1,43 @@
+@import 'mixins'
+@import 'breakpoints'
+
+.content-product
+  background-color: var(--white)
+  padding: 32px
+.product
+  +flex(flex-start,center)
+  .image
+    +flex(center,center)
+    width: calc(100% - 220px)
+    .box-image
+      +placeholder-loading()
+      height: 500px
+      margin: auto
+      width: 90%
+  .info
+    width: 220px
+    .box-text-promo
+      width: 100px
+      height: 14px
+      +placeholder-loading()
+    .box-title
+      margin-top: 16px
+      width: 200px
+      height: 40px
+      +placeholder-loading()
+    .box-price
+      width: 130px
+      height: 30px
+      margin: 32px 0px
+      +placeholder-loading()
+    .box-button
+      height: 39px
+      width: 100%
+      border-radius: var(--border-radius-4)
+      +placeholder-loading()
+      
+@media screen and (max-width: $break-tablet)
+  .product
+    display: block !important
+    .image
+      width: 100% !important

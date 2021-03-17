@@ -1,0 +1,30 @@
+<div class="container-product">
+  <div class="breadcrumbs">
+    <app-breadcrumbs></app-breadcrumbs>
+  </div>
+  <ng-container *ngIf="(isLoading$|async); else productDetail">
+    <app-product-detail-placeholder>
+    </app-product-detail-placeholder>
+  </ng-container>
+  <ng-template #productDetail>
+    <ng-container *ngIf="(product$|async) as product">
+      <div class="content-product">
+        <div class="product">
+          <div class="image">
+            <img [src]="product?.picture">
+          </div>
+          <div class="info">
+            <span class="text-promo">Nuevo - 234 vendidos</span>
+            <h1>{{product?.title}}</h1>
+            <span class="price">{{product?.price?.amount | currency:product?.price?.currency:'symbol-narrow'}}</span>
+            <button>Comprar</button>
+          </div>
+        </div>
+        <div class="description">
+          <h2>Descripción del producto</h2>
+          <span>{{product?.description}}</span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>
